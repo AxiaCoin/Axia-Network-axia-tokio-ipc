@@ -1,0 +1,25 @@
+[package]
+name = "axia-tokio-ipc"
+version = "0.9.0"
+edition = "2021"
+authors = ["Sankar boro <sankar.boro@zeeve.io>"]
+license = "MIT OR Apache-2.0"
+readme = "README.md"
+repository = "https://github.com/axia-tech/axia-tokio-ipc"
+homepage = "https://github.com/axia-tech/axia-tokio-ipc"
+description = """
+Interprocess communication library for tokio.
+"""
+
+[dependencies]
+futures = "0.3"
+log = "0.4"
+rand = "0.7"
+tokio = { version = "1.7.0", features = ["net", "time"] }
+libc = "0.2.65"
+
+[target.'cfg(windows)'.dependencies]
+winapi = { version = "0.3", features = ["winbase", "winnt", "accctrl", "aclapi", "securitybaseapi", "minwinbase", "winbase"] }
+
+[dev-dependencies]
+tokio = { version = "1.7.0", features = ["io-util", "rt", "time", "macros"] }
